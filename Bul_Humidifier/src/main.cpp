@@ -15,8 +15,8 @@ float maintainedHumidity = 60.00;
 long lastMsg = 0;
 
 //Connection to WiFi and Server
-const char* ssid = "Bul";
-const char* password = "Biedronka234";
+const char* ssid = "";
+const char* password = "";
 const char* mqtt_server = "192.168.1.103";
 
 const char* topic_request = "/bul_data/humidity/request";
