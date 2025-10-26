@@ -13,8 +13,8 @@ dht11 DHT11;
 
 
 //Connection
-const char* ssid = "Bul";
-const char* password = "Biedronka234";
+const char* ssid = "";
+const char* password = "";
 const char* mqtt_server = "192.168.1.103";
 
 WiFiClient espClient;
