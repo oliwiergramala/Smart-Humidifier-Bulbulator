@@ -9,6 +9,7 @@
   packages = [
     pkgs.esptool
     pkgs.cargo-espmonitor
+    pkgs.go-task
   ];
 
   # https://devenv.sh/languages/
