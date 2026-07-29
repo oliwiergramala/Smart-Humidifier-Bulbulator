@@ -10,6 +10,10 @@ result
 .result/
 .pre-commit-config.yaml
 
+# Build of projects
+build/
+
+
 ### C ###
 # Prerequisites
 *.d
