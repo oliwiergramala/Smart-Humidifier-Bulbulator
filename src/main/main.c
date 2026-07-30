@@ -8,11 +8,12 @@ static const char* TAG = "MAIN";
 
 void startingUp(void)
 {
+	
     ESP_LOGI(TAG, "=====================");
     ESP_LOGI(TAG,"Start");
 }
 
 void app_main(void)
 {
-    startingUp();
+	startingUp();
 }
