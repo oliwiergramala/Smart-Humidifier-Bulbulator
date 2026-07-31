@@ -13,6 +13,9 @@ result
 # Build of projects
 build/
 
+# Docker runtime data
+docker-services/volumes/
+docker-services/backups/
 
 ### C ###
 # Prerequisites
