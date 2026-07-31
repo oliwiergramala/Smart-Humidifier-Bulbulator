@@ -5,14 +5,14 @@ services:
     restart: unless-stopped
     user: "0"
     ports:
-    - "3000:3000"
+      - "3000:3000"
     environment:
-    - TZ=${TZ:-Etc/UTC}
-    - GF_PATHS_DATA=/var/lib/grafana
-    - GF_PATHS_LOGS=/var/log/grafana
+      - TZ=${TZ:-Etc/UTC}
+      - GF_PATHS_DATA=/var/lib/grafana
+      - GF_PATHS_LOGS=/var/log/grafana
     volumes:
-    - ./volumes/grafana/data:/var/lib/grafana
-    - ./volumes/grafana/log:/var/log/grafana
+      - ./volumes/grafana/data:/var/lib/grafana
+      - ./volumes/grafana/log:/var/log/grafana
     healthcheck:
       test: ["CMD", "wget", "-O", "/dev/null", "http://localhost:3000"]
       interval: 30s
@@ -26,21 +26,21 @@ services:
     restart: unless-stopped
     user: "0"
     ports:
-    - "8086:8086"
+      - "8086:8086"
     environment:
-    - TZ=${TZ:-Etc/UTC}
-    - INFLUXDB_HTTP_FLUX_ENABLED=false
-    - INFLUXDB_REPORTING_DISABLED=false
-    - INFLUXDB_HTTP_AUTH_ENABLED=false
-    - INFLUXDB_MONITOR_STORE_ENABLED=FALSE
-  # - INFLUX_USERNAME: ${INFLUXDB1_USERNAME:-dba}
-  # - INFLUX_PASSWORD: ${INFLUXDB1_PASSWORD:?eg echo INFLUXDB1_PASSWORD=supremo >>~/IOTstack/.env}
-  # - INFLUXDB_UDP_ENABLED: false
-  # - INFLUXDB_UDP_BIND_ADDRESS: 0.0.0.0:8086
-  # - INFLUXDB_UDP_DATABASE: udp
+      - TZ=${TZ:-Etc/UTC}
+      - INFLUXDB_HTTP_FLUX_ENABLED=false
+      - INFLUXDB_REPORTING_DISABLED=false
+      - INFLUXDB_HTTP_AUTH_ENABLED=false
+      - INFLUXDB_MONITOR_STORE_ENABLED=FALSE
+    # - INFLUX_USERNAME: ${INFLUXDB1_USERNAME:-dba}
+    # - INFLUX_PASSWORD: ${INFLUXDB1_PASSWORD:?eg echo INFLUXDB1_PASSWORD=supremo >>~/IOTstack/.env}
+    # - INFLUXDB_UDP_ENABLED: false
+    # - INFLUXDB_UDP_BIND_ADDRESS: 0.0.0.0:8086
+    # - INFLUXDB_UDP_DATABASE: udp
     volumes:
-    - ./volumes/influxdb/data:/var/lib/influxdb
-    - ./backups/influxdb/db:/var/lib/influxdb/backup
+      - ./volumes/influxdb/data:/var/lib/influxdb
+      - ./backups/influxdb/db:/var/lib/influxdb/backup
     healthcheck:
       test: ["CMD", "curl", "http://localhost:8086"]
       interval: 30s
@@ -53,44 +53,43 @@ services:
     build:
       context: ./services/nodered/.
       args:
-      - DOCKERHUB_TAG=latest
-      - EXTRA_PACKAGES=
+        - DOCKERHUB_TAG=latest
+        - EXTRA_PACKAGES=
     restart: unless-stopped
     user: "0"
     environment:
-    - TZ=${TZ:-Etc/UTC}
+      - TZ=${TZ:-Etc/UTC}
     ports:
-    - "1880:1880"
+      - "1880:1880"
     volumes:
-    - ./volumes/nodered/data:/data
-    - ./volumes/nodered/ssh:/root/.ssh
+      - ./volumes/nodered/data:/data
+      - ./volumes/nodered/ssh:/root/.ssh
   mosquitto:
     container_name: mosquitto
     build:
       context: ./.templates/mosquitto/.
       args:
-      - MOSQUITTO_BASE=eclipse-mosquitto:latest
+        - MOSQUITTO_BASE=eclipse-mosquitto:latest
     restart: unless-stopped
     environment:
-    - TZ=${TZ:-Etc/UTC}
+      - TZ=${TZ:-Etc/UTC}
     ports:
-    - "1883:1883"
+      - "1883:1883"
     volumes:
-    - ./volumes/mosquitto/config:/mosquitto/config
-    - ./volumes/mosquitto/data:/mosquitto/data
-    - ./volumes/mosquitto/log:/mosquitto/log
-    - ./volumes/mosquitto/pwfile:/mosquitto/pwfile
+      - ./volumes/mosquitto/config:/mosquitto/config
+      - ./volumes/mosquitto/data:/mosquitto/data
+      - ./volumes/mosquitto/log:/mosquitto/log
+      - ./volumes/mosquitto/pwfile:/mosquitto/pwfile
 
   portainer-ce:
     container_name: portainer-ce
     image: portainer/portainer-ce
     restart: unless-stopped
     ports:
-    - "8000:8000"
-    - "9000:9000"
-    # HTTPS
-    - "9443:9443"
+      - "8000:8000"
+      - "9000:9000"
+      # HTTPS
+      - "9443:9443"
     volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
-    - ./volumes/portainer-ce/data:/data
-
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./volumes/portainer-ce/data:/data

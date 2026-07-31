@@ -1,4 +1,4 @@
-version: '1'
+version: "1"
 application: IOTstack
 service: InfluxDB
 comment: InfluxDB Build Options
