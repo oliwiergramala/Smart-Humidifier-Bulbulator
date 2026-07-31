@@ -12,9 +12,16 @@
   };
   # https://devenv.sh/packages/
   packages = [
+    # Docker  
+    pkgs.docker
+    pkgs.docker-compose
+    
+    # Tools to build code
     pkgs.cmake
     pkgs.ninja
     pkgs.go-task
+    
+    # IDF.py 
     inputs.esp-dev.packages.${pkgs.system}.esp-idf-full
   ];
 
