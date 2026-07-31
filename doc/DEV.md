@@ -122,4 +122,3 @@ idf.py flash monitor
 | `idf.py monitor`       | Open the serial monitor                |
 | `idf.py flash monitor` | Flash and immediately start monitoring |
 | `Ctrl + ]`             | Exit the serial monitor                |
-

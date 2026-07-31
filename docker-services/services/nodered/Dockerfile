@@ -17,5 +17,3 @@ RUN apk add --no-cache eudev-dev ${EXTRA_PACKAGES}
 USER node-red
 
 # add-on nodes follow
-
-

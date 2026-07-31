@@ -1,0 +1,24 @@
+
+[formatter.c]
+command = "clang-format"
+options = ["-i"]
+includes = ["*.c"]
+
+[formatter.nix]
+command = "alejandra"
+includes = ["*.nix"]
+
+[formatter.dockerfile]
+command = "dockfmt"
+options = ["fmt", "--write"]
+includes = ["Dockerfile", "*.Dockerfile", "*.dockerfile"]
+
+[formatter.prettier]
+command = "prettier"
+options = ["--write"]
+includes = ["*.json", "*.jsonc", "*.yaml", "*.yml", "*.md"]
+
+[formatter.toml]
+command = "taplo"
+options = ["format"]
+includes = ["*.toml"]
