@@ -12,7 +12,7 @@ result
 
 # Build of projects
 build/
-
+.cache/
 # Docker runtime data
 docker-services/volumes/
 docker-services/backups/
