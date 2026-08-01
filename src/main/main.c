@@ -83,6 +83,13 @@ void measureTask(void *pvParameters)
 }
 
 // --------------------------
+void startingUp(void)
+{
+    ESP_LOGI(TAG, "=====================");
+    ESP_LOGI(TAG, "Starting Up!");
+}
+
+// --------------------------
 // Entry Point
 void app_main(void)
 {
