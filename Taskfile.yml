@@ -1,7 +1,30 @@
-version: "3"
+version: '3'
+
+dotenv:
+  - .env
 
 tasks:
-  up:
-    dir: "{{.USER_WORKING_DIR}}"
+  build:
+    dir: src
     cmds:
-      - echo "test"
+      - idf.py build
+
+  flash:
+    dir: src
+    cmds:
+      - idf.py -p {{.DEFAULT_PORT}} flash
+
+  monitor:
+    dir: src
+    cmds:
+      - idf.py -p {{.DEFAULT_PORT}} monitor
+
+  run:
+    cmds:
+      - task: flash
+      - task: monitor
+
+  dev:
+    cmds:
+      - task: build
+      - task: run

@@ -13,9 +13,14 @@ result
 # Build of projects
 build/
 .cache/
+
 # Docker runtime data
 docker-services/volumes/
 docker-services/backups/
+
+# Env file 
+.env
+.env_mock
 
 ### C ###
 # Prerequisites
