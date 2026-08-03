@@ -20,7 +20,7 @@ docker-services/backups/
 
 # Env file 
 .env
-
+.env_mock
 
 ### C ###
 # Prerequisites
