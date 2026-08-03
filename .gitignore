@@ -14,6 +14,9 @@ result
 build/
 .cache/
 
+# Config
+config.h
+
 # Docker runtime data
 docker-services/volumes/
 docker-services/backups/
@@ -21,6 +24,8 @@ docker-services/backups/
 # Env file 
 .env
 .env_mock
+
+
 
 ### C ###
 # Prerequisites
