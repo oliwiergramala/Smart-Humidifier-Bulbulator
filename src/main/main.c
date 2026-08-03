@@ -1,11 +1,11 @@
-#include <stdio.h>
-
+#include "config.h"
 #include "driver/gpio.h"
 #include "esp_log.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/queue.h"
 #include "freertos/task.h"
 #include "information.h"
+#include <stdio.h>
 
 static const char *TAG = "MAIN";
 
@@ -93,4 +93,7 @@ void app_main(void) {
 
   int info = 0;
   xQueueSend(ledQueue, &info, portMAX_DELAY);
+
+  ESP_LOGI(TAG, "SSID: %s", WIFI_SSID);
+  ESP_LOGI(TAG, "PASS: %s", WIFI_PASSWORD);
 }
