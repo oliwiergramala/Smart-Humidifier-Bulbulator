@@ -20,10 +20,15 @@ static const char *TAG = "MAIN";
 // Tasks
 // Handles WiFi connection
 void wifiTask(void *pvParameters) {
+
+  ESP_LOGI(TAG, "=====================");
+  ESP_LOGI(TAG, "WiFi Task succesfully created");
+
   while (1) {
     vTaskDelay(pdMS_TO_TICKS(1000));
   }
 }
+
 // Controls LED status indications
 // See blink table
 
@@ -93,7 +98,4 @@ void app_main(void) {
 
   int info = 0;
   xQueueSend(ledQueue, &info, portMAX_DELAY);
-
-  ESP_LOGI(TAG, "SSID: %s", WIFI_SSID);
-  ESP_LOGI(TAG, "PASS: %s", WIFI_PASSWORD);
 }
